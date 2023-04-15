@@ -2,7 +2,9 @@ baseURL = "https://drupaldoesnotexists.github.io/notes/"
 languageCode = "ru-ru"
 title = "Публичный блог @dne"
 theme = "nostyleplease"
-disqusShortname = 'dnenotes'
+
+[params]
+tgSite = "kbE3j1NL"
 
 [taxonomies]
 category = 'categories'
