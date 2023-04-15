@@ -1,0 +1,36 @@
+[[entries]]
+title = "Информация"
+
+  [[entries.entries]]
+  title = "автор"
+  url = "https://github.com/DrupalDoesNotExists/"
+
+  [[entries.entries]]
+  title = "github репозиторий"
+  url = "https://github.com/DrupalDoesNotExists/notes"
+
+  [[entries.entries]]
+  title = "тема (Masellum/hugo-theme-nostyleplease)"
+  url = "https://github.com/Masellum/hugo-theme-nostyleplease"
+
+[[entries]]
+title = "последние посты"
+
+  [entries.post_list]
+  limit = 5
+  show_more = true
+  show_more_text = "Архив..."
+  show_more_url = "posts"
+
+[[entries]]
+title = "посты по категориям"
+
+  [entries.post_list]
+  section = "posts"
+  show_more = true
+  show_more_text = "Архив..."
+  show_more_url = "posts"
+
+[[entries]]
+title = "rss"
+url = "index.xml"
