@@ -6,7 +6,7 @@ on: [push]
 jobs:
   notify:
     name: Notify
-    runs-on: ubuntu/latest
+    runs-on: ubuntu-latest
     if: "contains(github.event.head_commit.message, 'post:')"
     steps:
       - name: Send telegram message
