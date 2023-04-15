@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare-like инфраструктура"
 date: 2023-04-15T14:24:08+03:00
+tags: ["IT", "Сети", "Cloudflare", "Firewall", "DDOS"]
 draft: false
 ---
 
