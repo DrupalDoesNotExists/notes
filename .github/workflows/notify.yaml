@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     if: "contains(github.event.head_commit.message, 'post:')"
     steps:
+      - name: Split commit name
+        env:
+          COMMIT_NAME: ${{ github.event.head_commit.message }}
+        id: split
+        run: echo "::set-output name=fragment::${COMMIT_NAME##*post:}"
       - name: Send telegram message
         uses: appleboy/telegram-action@master
         with:
@@ -18,7 +23,7 @@ jobs:
           message: |
             Новый пост!
 
-            [${{ github.event.head_commit.message }}](https://github.com/${{ github.repository }}/commit/${{github.sha}})
+            [${{ steps.split.outputs.fragment }}](https://${{ github.repository_owner }}.github.io/${{ github.repository_name }}/posts/${{ steps.split.outputs.fragment }})
             Автор: **${{ github.event.head_commit.author.name }}**
 
 
