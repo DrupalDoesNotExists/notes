@@ -23,13 +23,13 @@ title = "последние посты"
   show_more_url = "posts"
 
 [[entries]]
-title = "посты по категориям"
+title = "категории"
 
   [entries.post_list]
-  section = "posts"
+  section = "categories"
   show_more = true
-  show_more_text = "Архив..."
-  show_more_url = "posts"
+  show_more_text = "Все категории"
+  show_more_url = "categories"
 
 [[entries]]
 title = "rss"
