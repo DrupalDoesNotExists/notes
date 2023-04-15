@@ -10,8 +10,10 @@
 
     <h1>{{ .Title }}</h1>
 
-    {{ .Content }}
+    {{ .TableOfContents }}
 
-    <script async src="https://comments.app/js/widget.js?3" data-comments-app-website={{ .Param "tgSite" }} data-limit="5"></script>
+    {{ .Content }}
 </article>
+
+<script async src="https://comments.app/js/widget.js?3" data-comments-app-website={{ .Param "tgSite" }} data-limit="5"></script>
 {{ end }}
