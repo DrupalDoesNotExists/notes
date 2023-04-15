@@ -1,0 +1,23 @@
+# Telegram channel notification
+name: Telegram notify
+
+# Run on push
+on: [push]
+jobs:
+  notify:
+    name: Notify
+    runs-on: ubuntu/latest
+    if: "contains(github.event.head_commit.message, 'post:')"
+    steps:
+      - name: Send telegram message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHANNEL }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            Новый пост!
+
+            [${{ github.event.head_commit.message }}](${{ github.repository }})
+            Автор: **${{ github.event.head_commit.author }}**
+
+
