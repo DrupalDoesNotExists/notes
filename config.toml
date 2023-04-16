@@ -1,4 +1,4 @@
-baseURL = "https://drupaldoesnotexists.github.io/notes/"
+baseURL = "https://blog.ddne.ru/"
 languageCode = "ru-ru"
 title = "Публичный блог @dne"
 theme = "nostyleplease"
