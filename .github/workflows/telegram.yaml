@@ -1,6 +1,10 @@
 # send telegram message
 name: Telegram
-on: [push, workflow_dispatch]
+on:
+  workflow_run:
+    workflows: ["Deploy Hugo site to Pages"]
+    types: ["completed"]
+  workflow_dispatch:
 
 permissions:
   contents: read
