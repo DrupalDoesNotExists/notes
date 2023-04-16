@@ -28,12 +28,7 @@ title = "последние посты"
 
 [[entries]]
 title = "категории"
-
-  [entries.post_list]
-  section = "categories"
-  show_more = true
-  show_more_text = "Все категории"
-  show_more_url = "categories"
+url = "categories"
 
 [[entries]]
 title = "rss"
