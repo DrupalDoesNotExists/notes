@@ -13,13 +13,13 @@ jobs:
         env:
           COMMIT_NAME: ${{ github.event.head_commit.message }}
         id: post_slug
-        run: echo "post_title::${COMMIT_NAME##*slug:\s##post:*}" >> $GITHUB_OUTPUT
+        run: echo "slug=${COMMIT_NAME##*slug:\\s##post:*}" >> $GITHUB_OUTPUT
 
       - name: Get post title
         env:
           COMMIT_NAME: ${{ github.event.head_commit.message }}
         id: post_title
-        run: echo "post_title::${COMMIT_NAME##*post:\s}" >> $GITHUB_OUTPUT
+        run: echo "title=${COMMIT_NAME##*post:\\s}" >> $GITHUB_OUTPUT
 
       - name: Send telegram message
         uses: appleboy/telegram-action@master
@@ -30,5 +30,5 @@ jobs:
           message: |
             Новый пост!
 
-            [${{ steps.post_title.outputs[0] }}](https://${{ github.repository_owner }}.github.io/${{ github.repository_name }}/posts/${{ steps.post_slug.outputs[0] }})
+            [${{ steps.post_title.outputs.title }}](https://${{ github.repository_owner }}.github.io/${{ github.repository_name }}/posts/${{ steps.post_slug.outputs.slug }})
             Автор: **${{ github.event.head_commit.author.name }}**
