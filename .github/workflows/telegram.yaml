@@ -1,0 +1,27 @@
+# send telegram message
+name: Telegram
+on: [push, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  message:
+    if: "contains(${{ github.event.head_commit.message }}, 'post:')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Parse commit message
+        id: msg_parse
+        run: ./scripts/trim-commit-msg.sh ${{ github.event.head_commit.message }}
+      - name: Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHANNEL }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          message: |
+            [${{ steps.msg_parse.outputs.title }}](https://${{ github.repository_owner }}.github.io/${{ github.repository_name }}${{ steps.msg_parse.outputs.slug }})
+
+            Автор: ${{ github.event.head_commit.author.name }}
