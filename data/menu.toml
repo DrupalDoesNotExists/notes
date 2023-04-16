@@ -6,6 +6,10 @@ title = "Информация"
   url = "https://github.com/DrupalDoesNotExists/"
 
   [[entries.entries]]
+  title = "telegram"
+  url = "https://t.me/dnenotes"
+
+  [[entries.entries]]
   title = "github репозиторий"
   url = "https://github.com/DrupalDoesNotExists/notes"
 
