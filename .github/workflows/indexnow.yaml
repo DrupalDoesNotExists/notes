@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   message:
-    if: "contains(github.workflow_run.head_commit.message, 'post:')"
+    if: "contains(github.event.workflow_run.head_commit.message, 'post:')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
