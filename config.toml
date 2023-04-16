@@ -5,6 +5,7 @@ theme = "nostyleplease"
 
 [params]
 tgSite = "kbE3j1NL"
+favicon = "img/favicon.ico"
 
 [taxonomies]
 category = 'categories'
