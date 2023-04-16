@@ -11,4 +11,4 @@ values=(${meta//;/ })
 
 # put github output
 echo "slug=${values[0]}" >> $GITHUB_OUTPUT
-echo "title=${values[1]}" >> $GITHUB_OUTPUT
+echo "title=${values[@]:1}" >> $GITHUB_OUTPUT
