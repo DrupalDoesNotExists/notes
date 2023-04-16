@@ -8,7 +8,6 @@ echo ${meta}
 
 # split meta by ; (bash-compatible ONLY!)
 values=(${meta//;/ })
-echo Slug: ${values[0]} Title: ${values[@]:1}
 
 # put github output
 echo "slug=${values[0]}" >> $GITHUB_OUTPUT
