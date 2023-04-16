@@ -22,6 +22,6 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           format: markdown
           message: |
-            [${{ steps.msg_parse.outputs.title }}](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}${{ steps.msg_parse.outputs.slug }})
+            [${{ steps.msg_parse.outputs.title }}](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ steps.msg_parse.outputs.slug }})
 
             Автор: ${{ github.event.head_commit.author.name }}
