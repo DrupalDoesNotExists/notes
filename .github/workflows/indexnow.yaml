@@ -1,0 +1,25 @@
+# send to indexnow
+name: Yandex Indexnow
+on:
+  workflow_run:
+    workflows: ["Deploy Hugo site to Pages"]
+    types: ["completed"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  message:
+    if: "contains(github.event.head_commit.message, 'post:')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Parse commit message
+        id: msg_parse
+        run: ./scripts/trim-commit-msg.sh "${{ github.event.head_commit.message }}"
+      - name: Curl request
+        uses: wei/curl@v1
+        with:
+          args: https://yandex.com/indexnow?url=https://blog.ddne.ru/${{ steps.msg_parse.outputs.slug }}&key=${{ secrets.YANDEX_SECRET }}
